@@ -55,7 +55,7 @@ def value():
     width = request.form["width"]
     lane = request.form["lane"]
     fixed = request.form["fixed"]
-    
+    col
     df=pd.read_csv("plothole.csv.html")
     list=[["image",latitude,longitude,depth,width,lane,fixed]]
     df=df.append(list)
