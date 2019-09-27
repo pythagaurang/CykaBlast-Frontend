@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <form name="search" action="." method="post">
+        Latitude:<br>
+        <input id="lat" type="text" name="latitude" value="">
+        <br><br>
+        Longitude:<br>
+        <input id="lon" type="text" name="longitude" value="">
+        <br><br>
+        <button onclick="getLocation()">Get Location</button>
+        Depth:<br>
+        <input type="radio" name="depth" value="small" checked> Small
+        <input type="radio" name="depth" value="medium"> Medium
+        <input type="radio" name="depth" value="large"> large
+        <br><br>
+        Width:<br>
+        <input type="radio" name="width" value="small" checked> Small
+        <input type="radio" name="width" value="medium"> Medium
+        <input type="radio" name="width" value="large"> large
+        <br><br>
+        Lane:<br>
+        <input type="radio" name="lane" value="Left" checked> Left
+        <input type="radio" name="lane" value="Right"> Right
+        <br><br>
+        Fixed:<br>
+        <input type="radio" name="fixed" value="small" checked> Small
+        <input type="radio" name="fixed" value="medium"> Medium
+        <br><br>
+    
+        <input type="submit"  value="Submit">
+        <br>
+    </form>
+    <script>
+        var x = document.getElementById("lat");
+        var y = document.getElementById("lon");
+        
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } else { 
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+        }
+        
+        function showPosition(position) {
+          x.innerHTML = "Latitude: " + position.coords.latitude + 
+          "<br>Longitude: " + position.coords.longitude;
+          x.value=position.coords.latitude;
+          y.value=position.coords.longitude;
+          console.log(x.value,y.value)
+        }
+        </script>
+        
+
+</body>
+</html>
