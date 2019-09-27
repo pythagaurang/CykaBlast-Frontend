@@ -5,6 +5,8 @@ from flask_uploads import UploadSet
 import csv
 import pandas as pd
 
+import blast
+
 
 UPLOAD_FOLDER = '/img'
 app = Flask (__name__)
@@ -55,13 +57,16 @@ def value():
     width = request.form["width"]
     lane = request.form["lane"]
     fixed = request.form["fixed"]
-    col
-    df=pd.read_csv("plothole.csv.html")
+    columns=['image','latitude','longitude','depth','width','location','fixed']
+    df=pd.read_csv("potholes.csv.html",index_col=0, )
     list=[["image",latitude,longitude,depth,width,lane,fixed]]
-    df=df.append(list)
-    df.to_csv("plothole.csv.html")
+    
+    df=df.append(pd.DataFrame(list,columns=columns))
+    df.to_csv("potholes.csv.html")
 
-    return render_template('')
+    blast
+    
+    return render_template('my.html')
 
 
 ##photos = UploadSet('photos', IMAGES)
