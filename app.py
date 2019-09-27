@@ -58,15 +58,19 @@ def value():
     lane = request.form["lane"]
     fixed = request.form["fixed"]
     columns=['image','latitude','longitude','depth','width','location','fixed']
-    df=pd.read_csv("potholes.csv.html",index_col=0, )
+    df=pd.read_csv("./templates/potholes.csv.html",index_col=0, )
     list=[["image",latitude,longitude,depth,width,lane,fixed]]
     
     df=df.append(pd.DataFrame(list,columns=columns))
-    df.to_csv("potholes.csv.html")
+    df.to_csv("./templates/potholes.csv.html")
 
     blast
     
     return render_template('my.html')
+
+@app.route('/potholes.csv')
+def readcsv():
+    return render_template('potholes.csv.html')
 
 
 ##photos = UploadSet('photos', IMAGES)

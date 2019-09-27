@@ -5,7 +5,7 @@ import folium
 import numpy as np
 
 
-plotholes=pd.read_csv('potholes.csv.html',index_col=None)
+plotholes=pd.read_csv('./templates/potholes.csv.html',index_col=None)
 locations=[]
 for index,row in plotholes.iterrows():     
     location = [float(row[2]), float(row[3])]
