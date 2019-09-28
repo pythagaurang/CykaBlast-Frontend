@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, redirect,flash, url_for
 ##from data import Articles
-##from werkzeug import secure_filename
+from werkzeug.utils import secure_filename
 from flask_uploads import UploadSet
 import csv
 import pandas as pd
-
+import numpy as np
 import blast
 
 
@@ -61,13 +61,14 @@ def value():
     width = request.form["width"]
     lane = request.form["lane"]
     fixed = request.form["fixed"]
+    f = request.files['file']
+    f.save(secure_filename(f.filename))
+    image = secure_filename (f.filename)
     columns=['image','latitude','longitude','depth','width','location','fixed']
     df=pd.read_csv("./templates/potholes.csv.html",index_col=0, )
-    list=[["image",latitude,longitude,depth,width,lane,fixed]]
+    list=[[image,latitude,longitude,depth,width,lane,fixed]]
     df=df.append(pd.DataFrame(list,columns=columns))
     df.to_csv("./templates/potholes.csv.html")
-
-    blast
     
     return render_template('my.html')
 
