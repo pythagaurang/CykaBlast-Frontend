@@ -49,6 +49,10 @@ def upload():
 def reports():
     return render_template('form.html')
 
+@app.route('/map')
+def maps():
+    return render_template('my.html')
+
 @app.route('/', methods=['POST'])
 def value():
     longitude = request.form["longitude"]
@@ -60,7 +64,6 @@ def value():
     columns=['image','latitude','longitude','depth','width','location','fixed']
     df=pd.read_csv("./templates/potholes.csv.html",index_col=0, )
     list=[["image",latitude,longitude,depth,width,lane,fixed]]
-    
     df=df.append(pd.DataFrame(list,columns=columns))
     df.to_csv("./templates/potholes.csv.html")
 

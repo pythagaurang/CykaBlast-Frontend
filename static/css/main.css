@@ -1,0 +1,38 @@
+nav{
+    background-color: #7d2852;
+    font-family: 'Chelsea Market', cursive;
+}
+
+.wrapper{
+    text-align: center ; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+       
+}
+
+#center-button{
+    position: absolute;
+    top: 50% ;
+    background-color: #287d7d;  
+}
+
+.form-cont{
+    padding-top: 15vh;
+    width: 70vh !important;
+}
+
+.btn-large{
+    height: 100px;
+    width:300px;
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 30px;
+    font-family: 'Chelsea Market', cursive;
+}
+
+.parallax-container {
+    height: 100vh;
+  }
+
+
