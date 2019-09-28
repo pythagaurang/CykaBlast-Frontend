@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect,flash, url_for
 ##from data import Articles
-from werkzeug import secure_filename
+##from werkzeug import secure_filename
 from flask_uploads import UploadSet
 import csv
 import pandas as pd
@@ -74,6 +74,7 @@ def value():
 @app.route('/potholes.csv')
 def readcsv():
     return render_template('potholes.csv.html')
+
 
 
 ##photos = UploadSet('photos', IMAGES)

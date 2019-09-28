@@ -35,4 +35,12 @@ nav{
     height: 100vh;
   }
 
+table{
+      size: 60vh,60vh;
+  }
+.well{
+    width:160vh;
+    padding-top:7vh;
+    padding-bottom:13vh;
+}
 
